@@ -1,90 +1,57 @@
-# AI Foundations — Starter Repo
+# Service Finder
 
-This is the starter repository for **AI Foundations: Architecting the Next Generation of Apps**. Clone it, rename it, and make it yours.
+A community service opportunity platform for high school and college students with mandatory service hour requirements. Students browse local, age-appropriate opportunities posted by verified nonprofits and school staff — and contact them without a phone call.
 
-[![Fork this template](https://img.shields.io/badge/Fork_this_template-24292e?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Bumbolio/agentic-coding-starter/fork)
-[![View syllabus](https://img.shields.io/badge/View_syllabus-a8361a?style=for-the-badge)](https://bumbolio.github.io/agentic-coding-starter/)
+**Current status:** Planning complete. Starting Phase 0 (scaffolding) next.
 
-## What's in here
+## Project links
 
-```
-.
-├── .claude/
-│   ├── settings.json                  # Hooks config (Stop hook = run tests after each turn)
-│   └── skills/
-│       ├── pm-interview/              # Have Claude interview you to produce a PRD
-│       ├── design-brief/              # Have Claude interview you to produce a design brief
-│       ├── build-plan/                # Slice the project into phases that fit one session each
-│       ├── rubber-duck-quiz/          # Quiz yourself on code before committing
-│       ├── explain-this-code/         # Have Claude teach you code at the right depth
-│       ├── architecture-diagram/      # Generate + critique Mermaid diagrams
-│       └── cloudflare-product-picker/ # Pick the right CF product for a need
-├── CLAUDE.md                          # Project context Claude reads on every session
-├── README.md                          # This file
-└── docs/
-    ├── PRD.md                         # Template for your Product Requirements Document
-    ├── DESIGN.md                      # Template for your UI/UX design brief
-    ├── BUILDPLAN.md                   # Template for your phased, context-window-sized build plan
-    └── index.html                     # The course syllabus (served via GitHub Pages)
-```
+🔗 **Live site:** _coming soon_
+🎥 **PRD video:** _coming soon_
+🎥 **Demo video:** _coming soon_
 
-## Getting started
+## What this solves
 
-1. **Fork this repo** (use the badge above) and clone your fork. Rename the directory to match your project.
-2. **Install Claude Code** if you haven't. See [the docs](https://docs.claude.com/en/docs/claude-code/overview).
-3. **Install Wrangler:** `npm install -g wrangler`, then `wrangler login`.
-4. **Open Claude Code in the project directory:** `claude`.
-5. **Run the PM interview** to produce your PRD. It writes directly into `docs/PRD.md`:
-   ```
-   > Use the pm-interview skill to help me write a PRD for [your idea]
-   ```
-6. **Run the design-brief interview** once the PRD is stable. Output goes to `docs/DESIGN.md`:
-   ```
-   > Use the design-brief skill to help me fill out docs/DESIGN.md
-   ```
-   Defaults are React + Headless UI + Tailwind. The brief captures any deviation.
-7. **Bootstrap your app** with `npm create cloudflare@latest` once the PRD and design brief are clear enough.
-8. **Run the build-plan interview** after bootstrapping, before writing real features. Output goes to `docs/BUILDPLAN.md`:
-   ```
-   > Use the build-plan skill to help me fill out docs/BUILDPLAN.md
-   ```
-   Output is 3–6 phases sized to fit one Claude Code session each. Re-run it when the plan drifts from reality.
+Students in rural communities can't find local service opportunities. Existing platforms (VolunteerMatch, Idealist) are urban-focused and list opportunities inappropriate for minors. Teachers field the same question from every student and don't have good answers. This platform gives students a searchable, school-endorsed list of real opportunities — and a way to reach organizations after school hours.
 
-## The skills
+## Who it's for
 
-Use them like this:
-
-| When you're... | Use the skill... |
+| User | What they do |
 |---|---|
-| Starting a new project or feature | `pm-interview` |
-| About to build UI for the first time | `design-brief` |
-| About to start coding a project | `build-plan` |
-| About to commit a chunk of AI-written code | `rubber-duck-quiz` |
-| Staring at code you don't fully grasp | `explain-this-code` |
-| Planning architecture or reviewing your own | `architecture-diagram` |
-| Unsure which Cloudflare product to use | `cloudflare-product-picker` |
+| Students | Browse and filter listings, submit inquiries via email (no account required) |
+| Organizations | Post volunteer needs (shifts or student-led projects), receive inquiry notifications |
+| School staff | Post school-based opportunities as verified affiliates of their institution |
+| Admin | Approve listings, verify org EINs, register school email domains |
 
-You don't have to name the skill — Claude will pick it up from context. But saying "use the rubber-duck-quiz skill" forces it.
+## Docs
 
-## Hooks
+- [`docs/PRD.md`](docs/PRD.md) — full product requirements
+- [`docs/DESIGN.md`](docs/DESIGN.md) — UI/UX design brief (phone-first, Cloudflare Pages + React + Tailwind)
+- [`docs/BUILDPLAN.md`](docs/BUILDPLAN.md) — seven-phase horizontal build plan
 
-`.claude/settings.json` ships with a **Stop hook** that runs `npm test` whenever Claude finishes a turn — Claude sees failures and keeps working. This enforces TDD without per-edit noise.
+## Tech stack
 
-If you want stricter behavior, swap the Stop hook for a `PostToolUse` hook (runs after every edit). Edit `.claude/settings.json` and ask Claude — the `update-config` skill knows the format.
+| Layer | Technology |
+|---|---|
+| UI | React + Headless UI + Tailwind CSS, hosted on Cloudflare Pages |
+| API | Cloudflare Workers + Hono |
+| Database | Cloudflare D1 (SQLite) |
+| File storage | Cloudflare R2 |
+| Sessions | Cloudflare KV |
+| Email | Resend |
 
-## Course rules
+## Build phases
 
-- **No `--dangerously-skip-permissions` until week 3.** Read every diff.
-- **Run `rubber-duck-quiz` before every meaningful commit.** Claude can draft the commit message and run `git commit` for you — that's encouraged. The rule is that you must understand the change well enough to defend it before it lands.
-- **Architecture diagrams get regenerated every week.** If it no longer matches the code, something drifted.
-- **Two videos required, both linked in this README:**
-  - A **PRD explainer video** (≤5 min) recorded after week 1.
-  - A **demo video** (≤5 min) recorded by week 4 — the deployed app plus 2–3 file-level decisions.
+| Phase | Goal | Status |
+|---|---|---|
+| 0 — Scaffolding | Cloudflare bootstrap, smoke test, deploy | Not started |
+| 1 — Data layer | D1 schema, migrations, seed data | Not started |
+| 2 — Auth | Login, sessions, school staff 2FA, domain verification | Not started |
+| 3 — Listing management | Org/staff posting, R2 image upload, dashboard | Not started |
+| 4 — Admin dashboard | Listing approval, EIN verification, domain registration | Not started |
+| 5 — Public browse + inquiry | Hero screen, listing grid, inquiry form, email notifications | Not started |
+| 6 — Polish | Stock images, about page, demo data, mobile refinements | Not started |
 
-## Your project links
+## Built with
 
-_Replace these once you deploy and record:_
-
-🔗 **Live site:** [https://your-project.pages.dev](https://your-project.pages.dev)
-🎥 **PRD video:** [your-prd-video-link]
-🎥 **Demo video:** [your-demo-video-link]
+This project was built as part of [AI Foundations: Architecting the Next Generation of Apps](https://bumbolio.github.io/agentic-coding-starter/), using the [agentic-coding-starter](https://github.com/Bumbolio/agentic-coding-starter) template and Claude Code.
