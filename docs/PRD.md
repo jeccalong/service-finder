@@ -29,7 +29,7 @@ High school (and college) students in rural communities have mandatory community
 
 **Secondary user — the school staff:**
 - Teacher, counselor, or administrator with service opportunities available within the school (classroom help, fundraiser support, event setup, etc.)
-- Creates a standard email/password account; auto-verified if their email domain matches a registered school staff domain (e.g. `corbin.kyschools.us`); flagged for manual admin review if not
+- Creates a standard email/password account; auto-verified if their email domain matches a registered school staff domain; flagged for manual admin review if not
 - Posts listings and receives student inquiries through the platform inbox, same as org users
 - Could eventually serve as platform admin for their institution
 
