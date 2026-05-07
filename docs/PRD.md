@@ -2,7 +2,7 @@
 
 > **Status:** Draft
 > **Last updated:** 2026-05-07
-> **Author:** jeccaj@gmail.com
+> **Author:** jeccalong
 > **Stakeholder:** High school students, local nonprofits, school staff
 
 ---
