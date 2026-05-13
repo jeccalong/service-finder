@@ -1,0 +1,19 @@
+name = "service-finder"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "service-finder-db"
+database_id = "7378cf5a-260a-46fd-a40e-30d26cd69c8c"
+
+[[r2_buckets]]
+binding = "IMAGES"
+bucket_name = "service-finder-images"
+# R2 must be enabled at https://dash.cloudflare.com before this bucket can be created
+
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "5265d9d513b7402f955a7dbd026007e2"
+preview_id = "e70732c4d2f04beabf2c7dafc1ee25eb"

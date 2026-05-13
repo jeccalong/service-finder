@@ -2,11 +2,11 @@
 
 A community service opportunity platform for high school and college students with mandatory service hour requirements. Students browse local, age-appropriate opportunities posted by verified nonprofits and school staff — and contact them without a phone call.
 
-**Current status:** Planning complete. Starting Phase 0 (scaffolding) next.
+**Current status:** Phase 0 (scaffolding) complete. Worker deployed with `/health` smoke test.
 
 ## Project links
 
-🔗 **Live site:** _coming soon_
+🔗 **Live site:** https://service-finder.jeccaj.workers.dev
 🎥 **PRD video:** _coming soon_
 🎥 **Demo video:** _coming soon_
 
@@ -44,7 +44,7 @@ Students in rural communities can't find local service opportunities. Existing p
 
 | Phase | Goal | Status |
 |---|---|---|
-| 0 — Scaffolding | Cloudflare bootstrap, smoke test, deploy | Not started |
+| 0 — Scaffolding | Cloudflare bootstrap, smoke test, deploy | ✅ Done |
 | 1 — Data layer | D1 schema, migrations, seed data | Not started |
 | 2 — Auth | Login, sessions, school staff 2FA, domain verification | Not started |
 | 3 — Listing management | Org/staff posting, R2 image upload, dashboard | Not started |
