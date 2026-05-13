@@ -45,7 +45,7 @@ Students in rural communities can't find local service opportunities. Existing p
 | Phase | Goal | Status |
 |---|---|---|
 | 0 — Scaffolding | Cloudflare bootstrap, smoke test, deploy | ✅ Done |
-| 1 — Data layer | D1 schema, migrations, seed data | Not started |
+| 1 — Data layer | D1 schema, migrations, seed data | ✅ Done |
 | 2 — Auth | Login, sessions, school staff 2FA, domain verification | Not started |
 | 3 — Listing management | Org/staff posting, R2 image upload, dashboard | Not started |
 | 4 — Admin dashboard | Listing approval, EIN verification, domain registration | Not started |

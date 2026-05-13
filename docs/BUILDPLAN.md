@@ -2,7 +2,7 @@
 
 > **Status:** Draft
 > **Last updated:** 2026-05-13
-> **Current phase:** Phase 1 (Phase 0 complete)
+> **Current phase:** Phase 2 (Phases 0–1 complete)
 
 ---
 
