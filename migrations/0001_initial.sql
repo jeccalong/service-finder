@@ -76,7 +76,7 @@ CREATE TABLE inquiries (
 
 CREATE INDEX idx_inquiries_listing ON inquiries(listing_id);
 
--- Registered student email domains (e.g. stu.corbin.kyschools.us).
+-- Registered student email domains (e.g. stu.riverbend.example).
 -- Kept separate from staff domains so a student domain cannot accidentally
 -- auto-verify a staff account.
 CREATE TABLE registered_student_domains (
@@ -86,7 +86,7 @@ CREATE TABLE registered_student_domains (
   created_at INTEGER NOT NULL
 );
 
--- Registered staff email domains (e.g. corbin.kyschools.us).
+-- Registered staff email domains (e.g. riverbend.example).
 CREATE TABLE registered_staff_domains (
   id TEXT PRIMARY KEY,
   domain TEXT NOT NULL UNIQUE,

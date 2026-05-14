@@ -241,7 +241,7 @@ Claude Code sessions have a finite context window. The cheaper a session is to s
 
 **Session budget:** 1–2 sessions.
 
-**Risks / unknowns:** Resend API setup — create account and get API key before the session. Email deliverability for `.kyschools.us` addresses — test with a real address before demo. The Combobox location/school picker needs real data (locations from listings, school names from `registered_staff_domains`) — query these in the route, not hardcoded.
+**Risks / unknowns:** Resend API setup — create account and get API key before the session. Email deliverability for school-district addresses — test with a real address before demo. The Combobox location/school picker needs real data (locations from listings, school names from `registered_staff_domains`) — query these in the route, not hardcoded.
 
 ---
 

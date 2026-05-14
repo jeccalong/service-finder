@@ -7,10 +7,10 @@ INSERT INTO admins (id, email, password_hash, name, created_at) VALUES
 
 -- Registered domains (one staff, one student, both for the same district)
 INSERT INTO registered_staff_domains (id, domain, school_name, created_at) VALUES
-  ('domain_staff_01', 'corbin.kyschools.us', 'Corbin Independent School', 1715000000000);
+  ('domain_staff_01', 'riverbend.example', 'Riverbend Independent School', 1715000000000);
 
 INSERT INTO registered_student_domains (id, domain, school_name, created_at) VALUES
-  ('domain_student_01', 'stu.corbin.kyschools.us', 'Corbin Independent School', 1715000000000);
+  ('domain_student_01', 'stu.riverbend.example', 'Riverbend Independent School', 1715000000000);
 
 -- One approved org
 INSERT INTO orgs (id, email, password_hash, name, ein, ein_status, status, created_at) VALUES
@@ -21,8 +21,8 @@ INSERT INTO orgs (id, email, password_hash, name, ein, ein_status, status, creat
 INSERT INTO school_staff_accounts
   (id, email, password_hash, name, school_name, email_domain, verification_status, created_at)
 VALUES
-  ('staff_01', 'jsmith@corbin.kyschools.us', 'PLACEHOLDER_HASH',
-   'Jane Smith', 'Corbin Independent School', 'corbin.kyschools.us',
+  ('staff_01', 'jsmith@riverbend.example', 'PLACEHOLDER_HASH',
+   'Jane Smith', 'Riverbend Independent School', 'riverbend.example',
    'auto_verified', 1715000000000);
 
 -- Three listings: one org shift (approved), one school project (pending),
@@ -39,12 +39,12 @@ VALUES
 
   ('listing_02',
    'Lead a school-wide recycling drive',
-   'Design and run a month-long recycling drive at Corbin High. Looking for a student leader to plan logistics, recruit volunteers, and present results to admin.',
-   'environment', 'project', 'Corbin, KY', NULL,
+   'Design and run a month-long recycling drive at Riverbend High. Looking for a student leader to plan logistics, recruit volunteers, and present results to admin.',
+   'environment', 'project', 'Riverbend, KY', NULL,
    'pending', 'school_staff', NULL, 'staff_01', 1715000000000, 1715000000000),
 
   ('listing_03',
    'Tutor middle schoolers in algebra',
    'Weekly after-school tutoring session in the school library. Tuesdays and Thursdays, 3:30-4:30 PM.',
-   'tutoring', 'shift', 'Corbin, KY', NULL,
+   'tutoring', 'shift', 'Riverbend, KY', NULL,
    'approved', 'school_staff', NULL, 'staff_01', 1715000000000, 1715000000000);

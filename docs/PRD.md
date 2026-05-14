@@ -72,9 +72,9 @@ High school (and college) students in rural communities have mandatory community
 - **Does it need to store data?** Yes — structured records (org profiles, listings, student inquiries) and files (org-uploaded images).
 - **Does it need authentication?** Yes, for orgs, school staff, and admins. Students do not create accounts. Three account types:
   - **Org accounts:** email/password, admin-approved, gated on EIN verification (automated lookup, manual fallback)
-  - **School staff accounts:** email/password, auto-verified if email domain matches a registered school staff domain; flagged for manual admin review if not. Admin maintains a list of registered school staff domains (e.g. `corbin.kyschools.us`) separate from student domains.
+  - **School staff accounts:** email/password, auto-verified if email domain matches a registered school staff domain; flagged for manual admin review if not. Admin maintains a list of registered school staff domains (e.g. `riverbend.example`) separate from student domains.
   - **Admin accounts:** email/password, full platform access.
-  - **Students (no account):** submit inquiries via a contact form using any email. Inquiries from registered student domains (e.g. `stu.corbin.kyschools.us`) are marked "Verified Student" in the recipient's inbox; others are marked "Unverified."
+  - **Students (no account):** submit inquiries via a contact form using any email. Inquiries from registered student domains (e.g. `stu.riverbend.example`) are marked "Verified Student" in the recipient's inbox; others are marked "Unverified."
 - **Does it need to call external services?** Yes — EIN verification via IRS/public registry API (automated, with failures flagged for manual admin review), and a transactional email service to notify orgs of new inquiries and confirm student submissions.
 - **Who pays for hosting?** Developer (Cloudflare free tier for v1).
 
