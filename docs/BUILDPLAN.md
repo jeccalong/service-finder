@@ -281,6 +281,7 @@ Claude Code sessions have a finite context window. The cheaper a session is to s
 |---|---|---|---|
 | 2026-05-07 | All | Initial plan | Horizontal slicing chosen because auth infrastructure is shared by three account types |
 | 2026-05-07 | Phase 2, 5 | Added 2FA for school staff (email OTP at login) and student session verification (verify once per hour via email link) | Rubber-duck quiz surfaced that domain-based auto-verification alone doesn't handle deactivated school emails; per-action verification was too high friction |
+| 2026-05-20 | Phase 1, 4 (open) | **TBD before Phase 4:** revisit `ON DELETE CASCADE` on `listings.org_id`, `listings.school_staff_id`, and `inquiries.listing_id`. Likely replace with soft-delete on `orgs`/`school_staff_accounts` (add `deleted_at`) and `ON DELETE RESTRICT` on `inquiries.listing_id`. | Rubber-duck quiz on Phase 1 surfaced that cascading an org delete also wipes every student inquiry sent to that org — destroying the audit trail exactly when it matters most (e.g. org removed for misconduct). Wrong default for a student-safety platform. Decide before writing admin delete actions in Phase 4. |
 
 ---
 
