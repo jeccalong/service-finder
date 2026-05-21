@@ -1,8 +1,8 @@
 # Build Plan
 
 > **Status:** Draft
-> **Last updated:** 2026-05-13
-> **Current phase:** Phase 2 (Phases 0–1 complete)
+> **Last updated:** 2026-05-20
+> **Current phase:** Phase 3 (Phases 0–2 complete)
 
 ---
 
@@ -115,12 +115,12 @@ Claude Code sessions have a finite context window. The cheaper a session is to s
 - Admin login succeeds with seeded admin credentials.
 
 **Done-when:**
-- [ ] Org and school staff signup routes work.
-- [ ] Domain-based auto-verification logic is tested and correct.
-- [ ] School staff 2FA flow works end-to-end (OTP sent, validated, session issued).
-- [ ] Session tokens issue on login and are validated by middleware.
-- [ ] Admin can reach `/admin/*` routes; unauthenticated requests get 401.
-- [ ] `npm test` passes.
+- [x] Org and school staff signup routes work.
+- [x] Domain-based auto-verification logic is tested and correct.
+- [x] School staff 2FA flow works end-to-end (OTP sent, validated, session issued).
+- [x] Session tokens issue on login and are validated by middleware.
+- [x] Admin can reach `/admin/*` routes; unauthenticated requests get 401.
+- [x] `npm test` passes.
 
 **Session budget:** 1–2 sessions.
 
@@ -282,6 +282,8 @@ Claude Code sessions have a finite context window. The cheaper a session is to s
 | 2026-05-07 | All | Initial plan | Horizontal slicing chosen because auth infrastructure is shared by three account types |
 | 2026-05-07 | Phase 2, 5 | Added 2FA for school staff (email OTP at login) and student session verification (verify once per hour via email link) | Rubber-duck quiz surfaced that domain-based auto-verification alone doesn't handle deactivated school emails; per-action verification was too high friction |
 | 2026-05-20 | Phase 1, 4 (open) | **TBD before Phase 4:** revisit `ON DELETE CASCADE` on `listings.org_id`, `listings.school_staff_id`, and `inquiries.listing_id`. Likely replace with soft-delete on `orgs`/`school_staff_accounts` (add `deleted_at`) and `ON DELETE RESTRICT` on `inquiries.listing_id`. | Rubber-duck quiz on Phase 1 surfaced that cascading an org delete also wipes every student inquiry sent to that org — destroying the audit trail exactly when it matters most (e.g. org removed for misconduct). Wrong default for a student-safety platform. Decide before writing admin delete actions in Phase 4. |
+| 2026-05-20 | Phase 2 | Password hashing uses **WebCrypto PBKDF2** (`src/lib/password.ts`), not bcryptjs as originally written. | PBKDF2 is built into the Workers runtime, so it adds no dependency (CLAUDE.md requires asking before adding deps) and is the Cloudflare-recommended approach. Self-describing `pbkdf2$iter$salt$hash` format lets cost parameters change later without breaking existing hashes. |
+| 2026-05-20 | Phase 2, 5 | OTP delivery built behind an `EmailSender` seam (`src/lib/otp.ts`) with a console stub; **real Resend wiring deferred to Phase 5** (`src/lib/email.ts`). | Tests mock external email regardless, so wiring Resend now would not improve coverage — it would only add a setup detour (API key + verified sending domain) and pull a Phase 5 file forward. Deliverability to school-district inboxes can only be validated in Phase 5 anyway. OTP stored plaintext in KV by design (hashing a 6-digit code is defeated by instant brute force; short TTL + single use + attempt cap provide the security). |
 
 ---
 
